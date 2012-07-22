@@ -8,11 +8,11 @@ Encoding.default_external = 'utf-8'
 module Nesta
   class App
 	
-		log_file = File.open('log/nesta_log', 'a+')
-		# Don't buffer writes to this file. Recommended for development.
-		log_file.sync = true
-		LOGGER = Logger.new(log_file)
-		LOGGER.level = Logger::DEBUG
+		# log_file = File.open('log/nesta_log', 'a+')
+		# # Don't buffer writes to this file. Recommended for development.
+		# log_file.sync = true
+		# LOGGER = Logger.new(log_file)
+		# LOGGER.level = Logger::DEBUG
 		
 		
 	
@@ -30,7 +30,7 @@ module Nesta
     # Add new routes here.
 
 		before do
-		  LOGGER.info "PATH: #{request.path_info}"
+		  # LOGGER.info "PATH: #{request.path_info}"
 		end
   end
 end
