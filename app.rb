@@ -5,8 +5,8 @@
 # Encoding.default_internal = 'utf-8' 
 Encoding.default_external = 'utf-8'
 
-module Nesta
-  class App
+# module Nesta
+  # class App
 	
 		# log_file = File.open('log/nesta_log', 'a+')
 		# # Don't buffer writes to this file. Recommended for development.
@@ -23,14 +23,14 @@ module Nesta
     #
     # use Rack::Static, :urls => ["/gl"], :root => "themes/gl/public"
 
-    helpers do
+    # helpers do
       # Add new helpers here.
-    end
+    # end
 
     # Add new routes here.
 
-		before do
+		# before do
 		  # LOGGER.info "PATH: #{request.path_info}"
-		end
-  end
-end
+		# end
+  # end
+# end
