@@ -1,20 +1,10 @@
+@import "colours";
 @import "mixins.scss";
 @import "coderay.scss";
 
 // Variables
 
 $content-width: 37em;
-
-$base-color: #262626;
-$background-color: white;
-$tint: #f1f1f3;
-$border-color: #9999dd;
-$link-color: #3f63da;
-$visited-link-color: darken($link-color, 15%);
-$hover-link-color: lighten($link-color, 15%);
-$active-link-color: darken($link-color, 50%);
-$nav-link-color: desaturate($link-color, 55%);
-$meta-color: #999999;
 
 $border-style: 1px dashed $border-color;
 
@@ -33,6 +23,8 @@ body {
   font: $base-font * 1.05 Georgia, serif;
   line-height: $vertical-rhythm;
   color: $base-color; }
+
+// Headings
 
 header[role=banner] {
   h1,
@@ -65,6 +57,24 @@ h3 {
 h4 {
   @include adjust-font-size($h4-scale, 2, 0); }
 
+// Links
+
+a {
+  border-bottom: 1px dotted $link-color;
+  text-decoration: none;
+  color: $link-color;
+  @include transition(color 0.25s 0 ease);
+  &:visited {
+    color: $visited-link-color;
+    border-bottom-color: $visited-link-color; }
+  &:hover {
+    color: $hover-link-color;
+    border-bottom-color: $hover-link-color; }
+  &:active {
+    color: $active-link-color;
+    border-bottom-color: $active-link-color; } }
+
+
 ol,
 p,
 pre,
@@ -85,8 +95,9 @@ pre {
   padding: $vertical-rhythm / 2 1em;
   overflow: auto; }
 
-img {
-  border: none; }
+img { border: none; }
+
+
 
 nav.breadcrumb {
   margin-top: $vertical-rhythm;
@@ -122,21 +133,6 @@ div#container {
       padding: 1em 0; } } }
 
 // The visuals
-
-a {
-  border-bottom: 1px dotted $link-color;
-  text-decoration: none;
-  color: $link-color;
-  @include transition(color 0.25s 0 ease);
-  &:visited {
-    color: $visited-link-color;
-    border-bottom-color: $visited-link-color; }
-  &:hover {
-    color: $hover-link-color;
-    border-bottom-color: $hover-link-color; }
-  &:active {
-    color: $active-link-color;
-    border-bottom-color: $active-link-color; } }
 
 nav.breadcrumb {
   ul {
@@ -178,26 +174,54 @@ article h1 a {
 body {
   background: $background-color; }
 
+/* Article
+---------------------------------------- */
+
 article {
-  img {
-    max-width: 100%;
-    margin-bottom: $base-vertical-margin; }
-  code,
-  pre {
-    background-color: $tint; }
-  code {
-    padding: 1px 3px; }
-  pre {
-    border-left: $border-style;
-    background-color: $tint;
-    code {
-      padding: 0; } }
-  footer {
-    border-top: $border-style;
-    p.meta {
-      @include adjust-font-size(0.909, 0.1, 1.9);
-      font-style: italic;
-      color: $meta-color; } } }
+  
+	code, pre {
+	    background-color: $tint;
+	}
+	code {
+    	padding: 1px 3px;
+    }
+	pre {
+		border-left: $border-style;
+		background-color: $tint;
+    	code {
+      		padding: 0;
+      	}
+    }
+
+	// Images
+
+	img {
+    	max-width: 100%;
+    	margin-bottom: $base-vertical-margin;
+    }
+
+	a.image {
+		border: none;
+
+		img {
+			margin-bottom: 0;
+			padding: 5px;
+			border: 1px dashed $border-color;
+		}
+
+		&:hover img { border: 1px dashed $hover-link-color; }
+	}
+
+	footer {
+    	border-top: $border-style;
+
+    	p.meta {
+			@include adjust-font-size(0.909, 0.1, 1.9);
+			font-style: italic;
+			color: $meta-color;
+		}
+	}
+}
 
 // Pages of content
 article[role="main"] {
